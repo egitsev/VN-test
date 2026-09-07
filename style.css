@@ -1,0 +1,341 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    background: #07080c;
+}
+
+
+body {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ===============================
+   FIXED VN STAGE
+   =============================== */
+
+#stage {
+    position: relative;
+
+    width: 800px;
+    height: 600px;
+
+    overflow: hidden;
+
+    background: black;
+
+    transform-origin: center center;
+}
+
+
+/* ===============================
+   BACKGROUND
+   =============================== */
+
+#background {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+
+/* ===============================
+   TAKINA
+   =============================== */
+
+#takina {
+    position: absolute;
+
+    right: 90px;
+    bottom: -50px;
+
+    max-height: 500px;
+    max-width: 390px;
+
+    object-fit: contain;
+
+    z-index: 2;
+
+    transition: none;
+}
+
+
+/* ===============================
+   SKIP
+   =============================== */
+
+#skipButton {
+    position: absolute;
+
+    top: 16px;
+    right: 18px;
+
+    z-index: 20;
+
+    padding: 6px 17px;
+
+    background:
+        rgba(8, 11, 20, 0.85);
+
+    border:
+        1px solid
+        rgba(204, 179, 112, 0.9);
+
+    color: #e3d8bb;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    border-radius: 0;
+
+    cursor: pointer;
+}
+
+
+/* ===============================
+   DIALOGUE
+   =============================== */
+
+#dialogueBox {
+    position: absolute;
+
+    left: 28px;
+    bottom: 22px;
+
+    width: 744px;
+    height: 148px;
+
+    z-index: 10;
+
+    padding:
+        39px
+        60px
+        20px
+        48px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15, 21, 38, 0.95),
+            rgba(5, 8, 17, 0.97)
+        );
+
+    border:
+        1px solid
+        rgba(207, 180, 111, 0.9);
+
+    box-shadow:
+        0 0 0 2px #05070d,
+        0 0 0 3px rgba(130, 110, 68, 0.55);
+
+    color: #eee9da;
+
+    cursor: pointer;
+}
+
+
+/* Decorative upper line */
+
+#dialogueBox::before {
+    content: "";
+
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+    top: 28px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #927845 10%,
+            #d3b873 50%,
+            #927845 90%,
+            transparent
+        );
+}
+
+
+/* ===============================
+   NAME
+   =============================== */
+
+#name {
+    position: absolute;
+
+    top: 7px;
+    left: 43px;
+
+    color: #e8cf8e;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 1px 3px black;
+}
+
+
+/* ===============================
+   TEXT
+   =============================== */
+
+#dialogue {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    text-shadow:
+        0 1px 2px black;
+}
+
+
+/* Chisato internal thoughts */
+
+#dialogue.thought {
+    font-style: italic;
+
+    color: #ddd8cc;
+}
+
+
+/* ===============================
+   NEXT
+   =============================== */
+
+#nextButton {
+    position: absolute;
+
+    right: 21px;
+    bottom: 16px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #d7ba70;
+
+    font-size: 19px;
+
+    cursor: pointer;
+}
+
+
+/* ===============================
+   MOBILE
+   =============================== */
+
+@media (orientation: portrait) {
+
+    body::before {
+        content:
+            "Landscape mode is recommended for the best experience.";
+
+        position: absolute;
+
+        top: 12px;
+
+        z-index: 100;
+
+        color: #bbb;
+
+        font-family: sans-serif;
+        font-size: 12px;
+    }
+
+}
+
+#stage {
+    --stage-scale: 1;
+
+    transform:
+        scale(var(--stage-scale));
+}
+
+
+#stage.shake {
+    animation: screenShake 180ms steps(2);
+}
+
+
+@keyframes screenShake {
+
+    0% {
+        transform:
+            scale(var(--stage-scale))
+            translate(0, 0);
+    }
+
+    20% {
+        transform:
+            scale(var(--stage-scale))
+            translate(-8px, 3px);
+    }
+
+    40% {
+        transform:
+            scale(var(--stage-scale))
+            translate(7px, -4px);
+    }
+
+    60% {
+        transform:
+            scale(var(--stage-scale))
+            translate(-5px, -2px);
+    }
+
+    80% {
+        transform:
+            scale(var(--stage-scale))
+            translate(6px, 3px);
+    }
+
+    100% {
+        transform:
+            scale(var(--stage-scale))
+            translate(0, 0);
+    }
+}

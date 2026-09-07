@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no"
+    >
+
+    <title>VN Test</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="stage">
+
+    <img
+        id="background"
+        src="bg_cafe.jpg"
+        alt=""
+    >
+
+
+    <!--
+        Chisato is the POV character,
+        so only Takina appears as a sprite.
+    -->
+
+    <img
+        id="takina"
+        src="takina.png"
+        alt=""
+    >
+
+
+    <button id="skipButton">
+        SKIP
+    </button>
+
+
+    <div id="dialogueBox">
+
+        <div id="name"></div>
+
+        <div id="dialogue"></div>
+
+        <button id="nextButton">
+            ◆
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="game.js"></script>
+
+</body>
+</html>
